@@ -21,12 +21,10 @@
   </div>
   <!-- right island: categories -->
   <div class="pointer-events-auto bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 border border-white/10 rounded-full px-1.5 py-1.5 flex gap-1 mono text-xs items-center">
-    <a href="/games" class="px-3 py-1.5 rounded-full border border-white/15 hover:bg-white hover:text-black transition">games</a>
-    <a href="/dailies" class="px-3 py-1.5 rounded-full bg-white text-black border border-white transition">dailies</a>
-    <a href="/misc" class="px-3 py-1.5 rounded-full border border-white/15 hover:bg-white hover:text-black transition">misc</a>
-    <span class="opacity-20">·</span>
-    <a href="https://danelthedev.itch.io" target="_blank" class="px-3 py-1.5 rounded-full bg-[#ff2449] text-white hover:bg-[#e01f3f] transition">itch.io ↗</a>
-  </div>
+    <a href="/games" class="px-3 py-1.5 rounded-full {{if eq .Page "games"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">games</a>
+    <a href="/dailies" class="px-3 py-1.5 rounded-full {{if eq .Page "dailies"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">dailies</a>
+    <a href="/misc" class="px-3 py-1.5 rounded-full {{if eq .Page "misc"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">misc</a>
+    <a href="/about" class="px-3 py-1.5 rounded-full {{if eq .Page "about"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">about</a>
   </div>
 </nav>
 {{else}}
@@ -40,35 +38,34 @@
     <a href="/games" class="px-3 py-1.5 rounded-full {{if eq .Page "games"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">games</a>
     <a href="/dailies" class="px-3 py-1.5 rounded-full {{if eq .Page "dailies"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">dailies</a>
     <a href="/misc" class="px-3 py-1.5 rounded-full {{if eq .Page "misc"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">misc</a>
-    <span class="opacity-20">·</span>
-    <a href="https://danelthedev.itch.io" target="_blank" class="px-3 py-1.5 rounded-full bg-[#ff2449] text-white hover:bg-[#e01f3f] transition">itch.io ↗</a>
+    <a href="/about" class="px-3 py-1.5 rounded-full {{if eq .Page "about"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">about</a>
   </div>
 </nav>
 {{end}}
 
 {{if eq .Page "home"}}
-<header class="max-w-[1120px] mx-auto px-6 pt-4 pb-6">
-  <div class="grid sm:grid-cols-3 gap-4 mt-4">
-    <a href="/games" class="group relative bg-white text-black rounded-[20px] p-6 overflow-hidden hover:scale-[1.02] transition">
-      <div class="absolute -right-6 -top-6 w-24 h-24 bg-[#ff2449] rounded-full opacity-20"></div>
+<header class="max-w-[1120px] mx-auto px-6 pt-4 pb-10">
+  <div class="flex flex-col gap-4 mt-4">
+    <a href="/games" class="group relative bg-white text-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[72%] self-start">
+      <div class="absolute -right-6 -top-6 w-24 h-24 bg-[#ff2449] rounded-full opacity-20 pointer-events-none"></div>
       <div class="mono text-xs opacity-50">/games</div>
-      <div class="display text-2xl font-bold mt-1">Games</div>
+      <div class="display text-3xl font-bold mt-1">Games</div>
       <div class="text-sm opacity-60 mt-1">My video games catalogue</div>
-      <div class="mt-4 inline-block bg-black text-white px-4 py-1.5 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
+      <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
     </a>
-    <a href="/dailies" class="group relative bg-[#ffec3d] text-black border-2 border-black rounded-[20px] p-6 overflow-hidden hover:scale-[1.02] transition">
-      <div class="absolute -right-6 -top-6 w-24 h-24 bg-black rounded-full opacity-10"></div>
+    <a href="/dailies" class="group relative bg-[#ffec3d] text-black border-2 border-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[72%] self-end text-right">
+      <div class="absolute -left-6 -top-6 w-24 h-24 bg-black rounded-full opacity-10 pointer-events-none"></div>
       <div class="mono text-xs opacity-50">/dailies</div>
-      <div class="display text-2xl font-bold mt-1">Daily Puzzles</div>
+      <div class="display text-3xl font-bold mt-1">Daily Puzzles</div>
       <div class="text-sm opacity-60 mt-1">Puzzles, refreshed daily.</div>
-      <div class="mt-4 inline-block bg-black text-white px-4 py-1.5 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
+      <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
     </a>
-    <a href="/misc" class="group relative bg-[#a78bfa] text-black border-2 border-black rounded-[20px] p-6 overflow-hidden hover:scale-[1.02] transition">
-      <div class="absolute -right-6 -top-6 w-24 h-24 bg-white rounded-full opacity-15"></div>
+    <a href="/misc" class="group relative bg-[#a78bfa] text-black border-2 border-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[72%] self-start">
+      <div class="absolute -right-6 -top-6 w-24 h-24 bg-white rounded-full opacity-15 pointer-events-none"></div>
       <div class="mono text-xs opacity-50">/misc</div>
-      <div class="display text-2xl font-bold mt-1">Experiments</div>
+      <div class="display text-3xl font-bold mt-1">Experiments</div>
       <div class="text-sm opacity-60 mt-1">Odd tools & side toys.</div>
-      <div class="mt-4 inline-block bg-black text-white px-4 py-1.5 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
+      <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
     </a>
   </div>
 </header>
@@ -76,8 +73,7 @@
 
 {{if eq .Page "games"}}
 <section class="max-w-[1120px] mx-auto px-6 py-6">
-  <div class="flex flex-wrap justify-between items-baseline gap-4 mb-6">
-    <h1 class="display text-3xl font-bold">Games</h1>
+  <div class="flex justify-end mb-6">
     <div id="game-filter" class="flex gap-1 mono text-xs">
       <button onclick="document.querySelectorAll('#game-filter button').forEach(b=>b.className='px-3 py-1.5 rounded-full border border-white/15 hover:bg-white hover:text-black transition');this.className='px-3 py-1.5 rounded-full bg-white text-black'" hx-get="/games?partial=games&filter=all" hx-target="#games-grid" hx-swap="innerHTML" class="px-3 py-1.5 rounded-full bg-white text-black">all</button>
       <button onclick="document.querySelectorAll('#game-filter button').forEach(b=>b.className='px-3 py-1.5 rounded-full border border-white/15 hover:bg-white hover:text-black transition');this.className='px-3 py-1.5 rounded-full bg-white text-black'" hx-get="/games?partial=games&filter=web" hx-target="#games-grid" hx-swap="innerHTML" class="px-3 py-1.5 rounded-full border border-white/15 hover:bg-white hover:text-black transition">web</button>
@@ -94,17 +90,51 @@
 
 {{if eq .Page "misc"}}
 <section class="max-w-[1120px] mx-auto px-6 py-8">
-  <h1 class="display text-3xl font-bold mb-6">Misc</h1>
   <div class="space-y-3 max-w-2xl">
   {{range .Apps}}
     <a href="{{.URL}}" target="_blank" class="flex items-center justify-between p-4 bg-zinc-900 border border-white/10 rounded-[18px] hover:border-white/20 transition">
       <div class="flex gap-4 items-center">
         <img src="{{.Cover}}" class="w-14 h-14 rounded-xl object-cover">
-        <div><div class="font-medium">{{.Name}}</div><div class="text-sm opacity-60">{{.Description}}</div></div>
+        <div><div class="font-semibold">{{.Name}}</div><div class="text-sm opacity-60">{{.Description}}</div></div>
       </div>
       <span class="mono text-xs border border-white/15 rounded-full px-3 py-1">open ↗</span>
     </a>
   {{end}}
+  </div>
+</section>
+{{end}}
+
+{{if eq .Page "about"}}
+<section class="max-w-[1120px] mx-auto px-6 pt-6 pb-12">
+  <div>
+    <h1 class="display text-5xl md:text-6xl font-bold leading-[0.9]">Hey.<br>I'm <span class="text-[#ff2449]">danel</span>.</h1>
+    <p class="mt-4 text-zinc-400 text-lg leading-relaxed">Game dev • puzzle maker. I build small games, daily puzzles and weird web toys.</p>
+  </div>
+  <div class="mt-10 flex flex-col gap-4">
+    <a href="https://github.com/danelthedev" target="_blank" class="group relative bg-white text-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[68%] self-start">
+      <div class="absolute -right-6 -top-6 w-24 h-24 bg-[#ff2449] rounded-full opacity-10 pointer-events-none"></div>
+      <div class="flex gap-4 items-center">
+        <div class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center font-bold">GH</div>
+        <div><div class="display font-bold text-lg leading-none">GitHub</div><div class="mono text-xs opacity-60">github.com/danelthedev</div></div>
+      </div>
+      <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">open ↗</div>
+    </a>
+    <a href="https://danelthedev.itch.io" target="_blank" class="group relative bg-[#ff2449] text-white rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[68%] self-end text-right">
+      <div class="absolute -left-6 -top-6 w-32 h-32 bg-white rounded-full opacity-10 pointer-events-none"></div>
+      <div class="flex gap-4 items-center justify-end">
+        <div class="text-right"><div class="display font-bold text-lg leading-none">itch.io</div><div class="mono text-xs opacity-80">danelthedev.itch.io</div></div>
+        <div class="w-12 h-12 rounded-full bg-white text-[#ff2449] flex items-center justify-center font-bold">it</div>
+      </div>
+      <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">open ↗</div>
+    </a>
+    <a href="https://www.linkedin.com/in/daniel-imbrea/" target="_blank" class="group relative bg-[#ffec3d] text-black border-2 border-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[68%] self-start">
+      <div class="absolute -right-6 -top-6 w-24 h-24 bg-black rounded-full opacity-10 pointer-events-none"></div>
+      <div class="flex gap-4 items-center">
+        <div class="w-12 h-12 rounded-full bg-[#0a66c2] text-white flex items-center justify-center font-bold">in</div>
+        <div><div class="display font-bold text-lg leading-none">LinkedIn</div><div class="mono text-xs opacity-60">linkedin.com/in/daniel-imbrea</div></div>
+      </div>
+      <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">open ↗</div>
+    </a>
   </div>
 </section>
 {{end}}

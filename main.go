@@ -42,6 +42,8 @@ func main() {
 			render(w, r, "dailies", data.Projects[0].Apps)
 		case "/misc":
 			render(w, r, "misc", data.Projects[2].Apps)
+		case "/about":
+			_ = tmpl.ExecuteTemplate(w, "layout", map[string]any{"Data": data, "Page": "about"})
 		default:
 			if strings.HasPrefix(r.URL.Path, "/game/") {
 				slug := strings.TrimPrefix(r.URL.Path, "/game/")
