@@ -1,16 +1,99 @@
-{{define "games_grid"}}<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-{{range .}}
-  <a href="{{.URL}}" target="_blank" class="group bg-zinc-900 rounded-[16px] border-2 border-white/10 overflow-hidden hover:border-white/20 hover:shadow-[4px_4px_0px_rgba(255,255,255,0.06)] transition block">
-    <div class="relative aspect-[16/10] overflow-hidden bg-zinc-800">
-      <img src="{{.Cover}}" alt="{{.Name}}" class="w-full h-full object-cover card-img" loading="lazy">
+{{define "games_grid"}}<div class="flex flex-wrap gap-5" id="games-wrap">
+{{range $i, $a := .}}
+  <div class="game-card bg-zinc-900 rounded-[16px] border-2 border-white/10 overflow-hidden hover:border-white/20 transition-all duration-700 block w-[calc(33.333%-14px)] min-w-[280px] flex-none relative"
+       data-index="{{$i}}" data-name="{{.Name}}" data-url="{{.URL}}" data-cover="{{.Cover}}" data-release="{{.ReleaseDate}}" data-web="{{.WebGame}}" data-desc="{{.Description}}" data-shots='[{{range $j, $s := .Screenshots}}{{if $j}},{{end}}"{{$s}}"{{end}}]'>
+    <a href="{{.URL}}" target="_blank" class="block relative aspect-[16/10] w-full overflow-hidden bg-zinc-800">
+      <img src="{{.Cover}}" alt="{{.Name}}" class="w-full h-full object-cover" loading="lazy">
       <div class="absolute top-2 left-2 flex gap-1 mono text-[10px]">
         {{if .WebGame}}<span class="px-2 py-1 rounded-full bg-white text-black">WEB</span>{{else}}<span class="px-2 py-1 rounded-full bg-zinc-700 text-white border border-white/10">DOWNLOAD</span>{{end}}
         {{if .ReleaseDate}}<span class="px-2 py-1 rounded-full bg-black/70 backdrop-blur text-white border border-white/10">{{.ReleaseDate}}</span>{{end}}
       </div>
-    </div>
-    <div class="p-4">
+    </a>
+    <div class="p-4 flex justify-between items-center">
       <div class="font-semibold leading-tight">{{.Name}}</div>
+      <button onclick="event.stopPropagation(); openGameDetail(this.closest('.game-card'))" class="mono text-xs border border-white/15 rounded-full px-3 py-1 hover:bg-white hover:text-black transition">expand ↓</button>
     </div>
-  </a>
+  </div>
 {{end}}
-</div>{{end}}
+</div>
+<div id="game-detail" class="grid grid-rows-[0fr] opacity-0 mt-0 basis-full w-full bg-zinc-900 rounded-[16px] border-2 border-white/10 overflow-hidden transition-all duration-700 ease-[cubic-bezier(.16,1,.3,1)]">
+  <div class="overflow-hidden">
+    <div class="flex flex-col lg:flex-row gap-6 p-6">
+      <div class="lg:w-[48%] shrink-0">
+        <img id="detail-cover" src="" class="w-full aspect-[16/10] object-cover rounded-xl border border-white/10">
+        <div class="flex gap-1 mono text-[10px] mt-3" id="detail-badges"></div>
+      </div>
+      <div class="flex-1 min-w-0 flex flex-col">
+        <h3 id="detail-name" class="font-semibold text-xl leading-tight"></h3>
+        <p id="detail-desc" class="text-sm opacity-60 mt-2 leading-relaxed"></p>
+        <div class="flex-1"></div>
+        <a id="detail-link" href="#" target="_blank" class="mt-4 inline-block bg-white text-black px-5 py-2 rounded-full text-sm font-medium hover:bg-zinc-200 transition self-start">open on itch ↗</a>
+      </div>
+    </div>
+    <div class="px-6 pb-6">
+      <div id="detail-carousel" class="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2"></div>
+    </div>
+  </div>
+</div>
+<script>
+function openGameDetail(el){
+  const wrap=document.getElementById('games-wrap');
+  const detail=document.getElementById('game-detail');
+  const idx=parseInt(el.dataset.index);
+  const isSame=detail.dataset.index==el.dataset.index && detail.classList.contains('opacity-100');
+  if(isSame){
+    detail.classList.remove('opacity-100','grid-rows-[1fr]','mt-5');
+    detail.classList.add('opacity-0','grid-rows-[0fr]','mt-0');
+    el.classList.remove('ring-2','ring-white');
+    return;
+  }
+  document.getElementById('detail-cover').src=el.dataset.cover;
+  document.getElementById('detail-name').textContent=el.dataset.name;
+  document.getElementById('detail-desc').textContent=el.dataset.desc;
+  document.getElementById('detail-link').href=el.dataset.url;
+  const badges=document.getElementById('detail-badges');
+  badges.innerHTML='';
+  if(el.dataset.web==='true') badges.innerHTML+='<span class="px-2 py-1 rounded-full bg-white text-black">WEB</span>';
+  else badges.innerHTML+='<span class="px-2 py-1 rounded-full bg-zinc-700 text-white border border-white/10">DOWNLOAD</span>';
+  if(el.dataset.release) badges.innerHTML+='<span class="px-2 py-1 rounded-full bg-black/70 text-white border border-white/10">'+el.dataset.release+'</span>';
+  const shots=JSON.parse(el.dataset.shots||'[]');
+  const car=document.getElementById('detail-carousel');
+  car.innerHTML='';
+  shots.forEach(s=>{
+    const d=document.createElement('div');
+    d.className='snap-center w-72 h-44 flex-none shrink-0';
+    d.innerHTML='<img src="'+s+'" class="w-full h-full object-cover rounded-lg border border-white/10">';
+    car.appendChild(d);
+  });
+  const cards=[...wrap.querySelectorAll('.game-card')];
+  let cols=1;
+  if(window.innerWidth>=1024) cols=3;
+  else if(window.innerWidth>=640) cols=2;
+  const row=Math.floor(idx/cols);
+  const lastIdx=Math.min(cards.length-1, row*cols+cols-1);
+  const lastCard=cards[lastIdx];
+  // ensure detail is at correct row with initial collapsed state for transition
+  detail.classList.remove('grid-rows-[1fr]','opacity-100','mt-5');
+  detail.classList.add('grid-rows-[0fr]','opacity-0','mt-0');
+  lastCard.after(detail);
+  detail.dataset.index=el.dataset.index;
+  // force reflow then animate to expanded
+  void detail.offsetHeight;
+  requestAnimationFrame(()=>{
+    detail.classList.remove('grid-rows-[0fr]','opacity-0','mt-0');
+    detail.classList.add('grid-rows-[1fr]','opacity-100','mt-5');
+  });
+  document.querySelectorAll('.game-card').forEach(c=>c.classList.remove('ring-2','ring-white'));
+  el.classList.add('ring-2','ring-white');
+  detail.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.game-card') && !e.target.closest('#game-detail')){
+    document.querySelectorAll('.game-card').forEach(c=>c.classList.remove('ring-2','ring-white'));
+    const d=document.getElementById('game-detail');
+    d.classList.remove('grid-rows-[1fr]','opacity-100','mt-5');
+    d.classList.add('grid-rows-[0fr]','opacity-0','mt-0');
+  }
+});
+</script>
+{{end}}

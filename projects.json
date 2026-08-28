@@ -7,13 +7,15 @@
                     "name": "Programle",
                     "description": "A daily game about guessing programming languages based on code snippets.",
                     "url": "https://programle.danelthedev.com",
-                    "cover": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80"
+                    "cover": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80",
+                    "screenshots": []
                 },
                 {
                     "name": "Rongless",
                     "description": "A daily song guessing game \u2014 guess the track from snippets.",
                     "url": "https://rongless.danelthedev.com",
-                    "cover": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80"
+                    "cover": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80",
+                    "screenshots": []
                 }
             ]
         },
@@ -25,105 +27,204 @@
                     "url": "https://danelthedev.itch.io/ancients-and-treasures",
                     "web_game": false,
                     "release_date": "2021-09-21",
-                    "cover": "https://img.itch.zone/aW1nLzcwMjQ5OTkucG5n/original/rFFG8y.png"
+                    "cover": "https://img.itch.zone/aW1nLzcwMjQ5OTkucG5n/original/rFFG8y.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMTIwNDAxNS83MDI1MDAzLnBuZw==/original/qDRLm%2B.png",
+                        "https://img.itch.zone/aW1hZ2UvMTIwNDAxNS83MDI1MDEzLnBuZw==/original/A6x6t5.png",
+                        "https://img.itch.zone/aW1hZ2UvMTIwNDAxNS83MDI1MDI3LnBuZw==/original/YcelxY.png",
+                        "https://img.itch.zone/aW1hZ2UvMTIwNDAxNS83MDI1MDQxLnBuZw==/original/drF2FD.png"
+                    ],
+                    "description": "*This game was made during the VimJam2 game jam* Take control of one of the 3 legendary champions in their quest to cleanse the land of the evil wraith known as the Executioner Gz'hot. Features: Fully flashed character with a choice of 2 weapons, unique abillities and mechanics. (2 more characters are coming!) Fight 3 difficult bosses, each with their own challenges and attacks. Amazing chiptune soundtrack (courtesy of simon13666 ) Be careful, but move quickly as the dark energy of the temple will empower the bosses, and will make the fights harder!"
                 },
                 {
                     "name": "Bobitza",
                     "url": "https://danelthedev.itch.io/bobitza",
                     "web_game": false,
                     "release_date": "",
-                    "cover": "https://img.itch.zone/aW1nLzUxNDQ3OTAucG5n/original/O4lUqz.png"
+                    "cover": "https://img.itch.zone/aW1nLzUxNDQ3OTAucG5n/original/O4lUqz.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvOTEwMjcyLzUxNDQzNjUucG5n/original/l5070j.png",
+                        "https://img.itch.zone/aW1hZ2UvOTEwMjcyLzUxNDQ0MTMucG5n/original/h5d54v.png",
+                        "https://img.itch.zone/aW1hZ2UvOTEwMjcyLzUxNDQ0MjIucG5n/original/LiJn31.png",
+                        "https://img.itch.zone/aW1hZ2UvOTEwMjcyLzUxNDQ0MjUucG5n/original/oJgg4z.png"
+                    ],
+                    "description": "Is your day going too well? I've got just the solution. Embark in a rage inducing journey across 20 levels of increasingly difficult challanges and prove your skill by collecting all the stars along the way!"
                 },
                 {
                     "name": "C0re",
                     "url": "https://danelthedev.itch.io/c0re",
                     "web_game": false,
                     "release_date": "",
-                    "cover": "https://img.itch.zone/aW1nLzkwODg3MDAucG5n/original/ejmNFH.png"
+                    "cover": "https://img.itch.zone/aW1nLzkwODg3MDAucG5n/original/ejmNFH.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMTU1NzQ4NS85MDg4NjgxLnBuZw==/original/TifNSy.png",
+                        "https://img.itch.zone/aW1hZ2UvMTU1NzQ4NS85MDg4NjgwLnBuZw==/original/QVUWXX.png",
+                        "https://img.itch.zone/aW1hZ2UvMTU1NzQ4NS85MDg4Njc5LnBuZw==/original/N0Pmeu.png",
+                        "https://img.itch.zone/aW1hZ2UvMTU1NzQ4NS85MDg4NjgyLnBuZw==/original/6aFNkW.png",
+                        "https://img.itch.zone/aW1hZ2UvMTU1NzQ4NS85MDg4NjgzLnBuZw==/original/AHHlVF.png",
+                        "https://img.itch.zone/aW1hZ2UvMTU1NzQ4NS85MDg4Njg0LnBuZw==/original/0Nt2h5.png"
+                    ],
+                    "description": "Fight waves of increasingly more powerful enemies in this space roguelike. The game features over a hundred enemy variations and a diverse toolset of weapons and abillities so that the gameplay never feels stale."
                 },
                 {
                     "name": "Dice Court",
                     "url": "https://danelthedev.itch.io/dice-court",
                     "web_game": true,
                     "release_date": "2022-07-17",
-                    "cover": "https://img.itch.zone/aW1nLzk1MzYwOTkucG5n/original/XsE%2B5%2F.png"
+                    "cover": "https://img.itch.zone/aW1nLzk1MzYwOTkucG5n/original/XsE%2B5%2F.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMTYxNjA4OC85NDg3MTQ0LnBuZw==/original/x9qWUw.png",
+                        "https://img.itch.zone/aW1hZ2UvMTYxNjA4OC85NDg3MTQ1LnBuZw==/original/jR%2B3jF.png",
+                        "https://img.itch.zone/aW1hZ2UvMTYxNjA4OC85NDg3MTU1LnBuZw==/original/MRL7KL.png",
+                        "https://img.itch.zone/aW1hZ2UvMTYxNjA4OC85NDg3MTY0LnBuZw==/original/D9YMnC.png",
+                        "https://img.itch.zone/aW1hZ2UvMTYxNjA4OC85NDg3MTY1LnBuZw==/original/YjwRhv.png",
+                        "https://img.itch.zone/aW1hZ2UvMTYxNjA4OC85NDg3MTY3LnBuZw==/original/zm9nAo.png"
+                    ],
+                    "description": "*Browser players note* If you can not look around with the mouse, press escape then space to recapture the mouse. Also, if the cursor drifts, try fullscreen mode works poorly on browser in general so standalone recommended Welcome to the first day at your new job, kid. As you know, our casino is a little special, since we allow customers to come with their own dice, because some have, you know, emotional value.. But you see, a lot of wierd folk come to us, \u00a0and we want to make sure that no funny business is happening in our casino. So make sure that no cheater gets in, else you'll be unemployed again very soon. - Your new boss Game Description: Put yourself in the shoes of a casino receptionist and decide who gets to come in and who won't. Make use of your tools and your wit and figure who's the cheater, but don't reject honest customers"
                 },
                 {
                     "name": "Dungeon Renovators Inc",
                     "url": "https://danelthedev.itch.io/dungeon-renovators-inc",
                     "web_game": true,
                     "release_date": "2023-07-10",
-                    "cover": "https://img.itch.zone/aW1nLzEyNzA3NjI3LmdpZg==/original/kQDYDC.gif"
+                    "cover": "https://img.itch.zone/aW1nLzEyNzA3NjI3LmdpZg==/original/kQDYDC.gif",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMjE1Mjk2OS8xMjczMDY1My5wbmc=/original/QuwIwA.png",
+                        "https://img.itch.zone/aW1hZ2UvMjE1Mjk2OS8xMjczMDY2MC5wbmc=/original/HRBRyO.png"
+                    ],
+                    "description": "Here at Dungeon Renovators Inc. we assure 100% satisfaction and heroes demise! Improve low level dungeons and turn them into raid boss level of challenge! Controls: A/S/D/W to move camera Q/E to rotate camera Scroll to zoom in/out Click toolbar items to place them on the map Right click to deselect current item Esc to open menu"
                 },
                 {
                     "name": "Ghost Sucker",
                     "url": "https://danelthedev.itch.io/ghost-sucker",
                     "web_game": false,
                     "release_date": "2021-10-25",
-                    "cover": "https://img.itch.zone/aW1nLzcyNzQzNzguZ2lm/original/%2BLJ52c.gif"
+                    "cover": "https://img.itch.zone/aW1nLzcyNzQzNzguZ2lm/original/%2BLJ52c.gif",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMTI0ODAzNi83Mjc0NTM5LnBuZw==/original/8MzXx7.png",
+                        "https://img.itch.zone/aW1hZ2UvMTI0ODAzNi83Mjc0NTQwLnBuZw==/original/gxwhUu.png",
+                        "https://img.itch.zone/aW1hZ2UvMTI0ODAzNi83Mjc0NTQxLnBuZw==/original/TwlxUy.png"
+                    ],
+                    "description": "The ghosts have invaded your house! It's up to you to catch them, with the new ghostsucker 9000!"
                 },
                 {
                     "name": "Jimbob and the Magic Chain",
                     "url": "https://danelthedev.itch.io/jimbob-and-the-magic-chain",
                     "web_game": true,
                     "release_date": "2022-04-24",
-                    "cover": "https://img.itch.zone/aW1nLzg3NDgyNzYucG5n/original/p%2FUzIL.png"
+                    "cover": "https://img.itch.zone/aW1nLzg3NDgyNzYucG5n/original/p%2FUzIL.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMTQ5NzgxMi84NzQ4MjY1LnBuZw==/original/augMvB.png",
+                        "https://img.itch.zone/aW1hZ2UvMTQ5NzgxMi84NzQ4MjY3LnBuZw==/original/ta26zX.png",
+                        "https://img.itch.zone/aW1hZ2UvMTQ5NzgxMi84NzQ4MjY5LnBuZw==/original/%2F5%2BWhk.png"
+                    ],
+                    "description": "In the magical world of LandLand Jimbob found a special chain (which turned out to be an alien parasite), that allowed him to obtain the powers of his enemies. He set on a mission to use his newfound power for good (did he?) and kill Bob the dragon. (Bob did nothing wrong, but hey, Jimbob did it anyway) A/D to move left and right Space/W to jump Left click, Right click and F to use your abillities R to interact Esc to pause E to use the chain"
                 },
                 {
                     "name": "Reverse Trivia",
                     "url": "https://danelthedev.itch.io/reverse-trivia",
                     "web_game": false,
                     "release_date": "",
-                    "cover": "https://img.itch.zone/aW1nLzY0NzA3MjMucG5n/original/7Vt3md.png"
+                    "cover": "https://img.itch.zone/aW1nLzY0NzA3MjMucG5n/original/7Vt3md.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMTExOTA4MC82NDcwNzQ3LnBuZw==/original/6YrjGc.png",
+                        "https://img.itch.zone/aW1hZ2UvMTExOTA4MC82NDcwNzQ2LnBuZw==/original/jXmjgD.png",
+                        "https://img.itch.zone/aW1hZ2UvMTExOTA4MC82NDcwNzQ4LnBuZw==/original/ZundYb.png",
+                        "https://img.itch.zone/aW1hZ2UvMTExOTA4MC82NDcwNzQ1LnBuZw==/original/5MjL%2FS.png"
+                    ],
+                    "description": "Challange your friends in this trivia battle where everyone can be a winner. The host will use the \"Reverse Trivia\" launcher, while the contestants use the buzzer app to connect and play. Using an online communication app (like Discord) is highly recommended. One player is the host, controlling the game board, gives points and overall, controls the game rules. The other 3 players will be presented an answer, and will have to press the buzzer as fast as they can, and then try to answer the phrase with the proper question. The game files are in \"C:\\Users\\*UserName*\\AppData\\Local\\Reverse_Trivia\". There you can edit the entries and make your own themes and questions.\u00a0(\u00a0you need\u00a0to open the\u00a0game\u00a0once\u00a0in\u00a0order\u00a0for them to\u00a0be\u00a0created)"
                 },
                 {
                     "name": "Robo Fl0w",
                     "url": "https://danelthedev.itch.io/robo-fl0w",
                     "web_game": true,
                     "release_date": "2024-07-22",
-                    "cover": "https://img.itch.zone/aW1nLzE3MDAwNzI4LnBuZw==/original/flezb4.png"
+                    "cover": "https://img.itch.zone/aW1nLzE3MDAwNzI4LnBuZw==/original/flezb4.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMjg0MzA1MS8xNzAxOTAwMS5wbmc=/original/nJW%2BBh.png",
+                        "https://img.itch.zone/aW1hZ2UvMjg0MzA1MS8xNzAxOTAwMC5wbmc=/original/BkswLM.png",
+                        "https://img.itch.zone/aW1hZ2UvMjg0MzA1MS8xNzAxODk5OS5wbmc=/original/AMZMfQ.png",
+                        "https://img.itch.zone/aW1hZ2UvMjg0MzA1MS8xNzAxOTAxMC5wbmc=/original/mEFDFH.png"
+                    ],
+                    "description": "An urban 3D\u00a0platformer inspired by mirror's edge, ghostrunner and spyro. Reach the green door after collecting all the checkpoints. Note : Please use the downloadable version as it offers better visual quality and performance. The web version is there to get a feeling for the game. Controls: WASD - movement/pipe sliding Ctrl - sliding Space - Jump/Wall Jumps"
                 },
                 {
                     "name": "Robotzel",
                     "url": "https://danelthedev.itch.io/robotzel",
                     "web_game": false,
                     "release_date": "2020-09-17",
-                    "cover": "https://img.itch.zone/aW1nLzQyMzYyNDgucG5n/original/FYwQjl.png"
+                    "cover": "https://img.itch.zone/aW1nLzQyMzYyNDgucG5n/original/FYwQjl.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvNzU3ODcwLzQyNDE3MDcucG5n/original/tKsw8F.png",
+                        "https://img.itch.zone/aW1hZ2UvNzU3ODcwLzQyMzYyNDUucG5n/original/y2GYhj.png",
+                        "https://img.itch.zone/aW1hZ2UvNzU3ODcwLzQyMzYyNDYucG5n/original/4JZRz8.png"
+                    ],
+                    "description": "Our newly built Robotzel robot training facilty has opened its doors and is hiring! Take control of a robot assistant and help our little metal friends get to the exits. Play through 9 \u00a0levels that will test your puzzle solving abillity! Looking for feedback and constructive criticism, and if you've got any level ideea, feel free to share it!"
                 },
                 {
                     "name": "The Chomper",
                     "url": "https://danelthedev.itch.io/the-chomper",
                     "web_game": true,
                     "release_date": "2022-07-31",
-                    "cover": "https://img.itch.zone/aW1nLzk2NTgzOTcucG5n/original/SvTgT6.png"
+                    "cover": "https://img.itch.zone/aW1nLzk2NTgzOTcucG5n/original/SvTgT6.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMTY0MjExMS85NjU4NDA5LnBuZw==/original/JX7FLn.png"
+                    ],
+                    "description": "Hold the Space to move in the direction of the arrow. Chomp as many villagers as you can before you become overwhelmed. Killing an enemy with your head gives extra healing."
                 },
                 {
                     "name": "Tiny Technologies",
                     "url": "https://danelthedev.itch.io/tiny-technologies",
                     "web_game": true,
                     "release_date": "2024-08-23",
-                    "cover": "https://img.itch.zone/aW1nLzE3NDIzMzYwLnBuZw==/original/Y9MjTY.png"
+                    "cover": "https://img.itch.zone/aW1nLzE3NDIzMzYwLnBuZw==/original/Y9MjTY.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMjkwNjg0Ni8xNzQ1MDEwNS5wbmc=/original/W2b0bp.png",
+                        "https://img.itch.zone/aW1hZ2UvMjkwNjg0Ni8xNzQ1MDM1OC5wbmc=/original/GJwqZZ.png",
+                        "https://img.itch.zone/aW1hZ2UvMjkwNjg0Ni8xNzQ1MDEwOC5wbmc=/original/0SGM0E.png",
+                        "https://img.itch.zone/aW1hZ2UvMjkwNjg0Ni8xNzQ1MDEwOS5wbmc=/original/ljU0F6.png",
+                        "https://img.itch.zone/aW1hZ2UvMjkwNjg0Ni8xNzQ1MDQ0NC5wbmc=/original/I1N63h.png"
+                    ],
+                    "description": "Think with scaling! Resize object and yourself in order to navigate through 8 puzzle levels. The game was inspired by Portal and Talos Principle. I hope you enjoy!"
                 },
                 {
                     "name": "Train Loops",
                     "url": "https://danelthedev.itch.io/train-loops",
                     "web_game": true,
                     "release_date": "2025-08-05",
-                    "cover": "https://img.itch.zone/aW1nLzIyNDUwMTY3LnBuZw==/original/bMIY6S.png"
+                    "cover": "https://img.itch.zone/aW1nLzIyNDUwMTY3LnBuZw==/original/bMIY6S.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMzc3MjQ0Ni8yMjQ1MDE3MS5wbmc=/original/YSNYwx.png"
+                    ],
+                    "description": "Try to optimize the train route by connecting the generator stations to the consumer stations"
                 },
                 {
                     "name": "Unpleasant Takeover",
                     "url": "https://danelthedev.itch.io/unpleasant-takeover",
                     "web_game": false,
                     "release_date": "",
-                    "cover": "https://img.itch.zone/aW1nLzc5NzQ5MTMucG5n/original/me6VoZ.png"
+                    "cover": "https://img.itch.zone/aW1nLzc5NzQ5MTMucG5n/original/me6VoZ.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMTM2OTY0OS83OTc0OTE4LnBuZw==/original/w0xESX.png",
+                        "https://img.itch.zone/aW1hZ2UvMTM2OTY0OS83OTc0OTIwLnBuZw==/original/uajcRJ.png",
+                        "https://img.itch.zone/aW1hZ2UvMTM2OTY0OS83OTc0OTIxLnBuZw==/original/6JiYtu.png",
+                        "https://img.itch.zone/aW1hZ2UvMTM2OTY0OS83OTc0OTIyLnBuZw==/original/Ze2Mb8.png"
+                    ],
+                    "description": "Help rid the city of criminals with the tools available at your disposal: a pistol, shotgun and smg. Navigate the levels carefully, dodging bullets, taking cover and timing your assault. Be on the lookout for ammo bags and health kits too!"
                 },
                 {
                     "name": "Wrecker Ball",
                     "url": "https://danelthedev.itch.io/wrecker-ball",
                     "web_game": true,
                     "release_date": "2022-10-26",
-                    "cover": "https://img.itch.zone/aW1nLzEwMzM2ODgwLnBuZw==/original/wfLnFx.png"
+                    "cover": "https://img.itch.zone/aW1nLzEwMzM2ODgwLnBuZw==/original/wfLnFx.png",
+                    "screenshots": [
+                        "https://img.itch.zone/aW1hZ2UvMTc1NzQ2OS8xMDM0NjU5Mi5wbmc=/original/%2FDMj7l.png",
+                        "https://img.itch.zone/aW1hZ2UvMTc1NzQ2OS8xMDM0NjU5NC5wbmc=/original/Kf%2FwOG.png",
+                        "https://img.itch.zone/aW1hZ2UvMTc1NzQ2OS8xMDM0NjU5My5wbmc=/original/hegdWe.png",
+                        "https://img.itch.zone/aW1hZ2UvMTc1NzQ2OS8xMDM0NjU5NS5wbmc=/original/QgYFO0.png"
+                    ],
+                    "description": "Note: The browser version of the game does not support Firefox A game about smashing and tearing stuff apart. Goal: Smash the blue tinted glass while avoiding the obstacles (red tinted glass) Controls:\u00a0 W/A/S/D or arrow keys to steer the ball"
                 }
             ]
         },
@@ -134,7 +235,8 @@
                     "name": "BotBook",
                     "description": "A social media for LLMs.",
                     "url": "https://botbook.danelthedev.com",
-                    "cover": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80"
+                    "cover": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80",
+                    "screenshots": []
                 }
             ]
         }

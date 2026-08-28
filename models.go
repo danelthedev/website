@@ -13,7 +13,8 @@ type App struct {
 	URL         string `json:"url"`
 	WebGame     bool   `json:"web_game"`
 	ReleaseDate string `json:"release_date"`
-	Cover       string `json:"cover"`
+	Cover       string   `json:"cover"`
+	Screenshots []string `json:"screenshots"`
 	Slug        string
 }
 
