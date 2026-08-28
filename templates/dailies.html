@@ -3,12 +3,11 @@
   <!-- lazy hidden iframe to not block programle 1.3MB parse -->
   {{range $i, $a := .Apps}}{{if eq $i 0}}<iframe id="frame-{{$i}}" src="{{.URL}}" class="absolute inset-0 w-full h-full border-0 block" allow="autoplay; fullscreen" loading="eager"></iframe>{{else}}<iframe id="frame-{{$i}}" data-src="{{.URL}}" class="absolute inset-0 w-full h-full border-0 hidden" allow="autoplay; fullscreen" loading="lazy"></iframe>{{end}}{{end}}
 
-  <!-- tabs: bottom on mobile, left column on desktop -->
-  <div class="absolute left-1/2 -translate-x-1/2 bottom-4 md:bottom-auto md:left-3 md:top-1/2 md:translate-x-0 md:-translate-y-1/2 z-10 pointer-events-none flex">
-    <div id="daily-tabs" class="pointer-events-auto flex flex-row md:flex-col gap-1 p-1.5 rounded-2xl bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 border border-white/10 mono text-xs">
+  <!-- tabs: vertical side bar on both mobile + desktop -->
+  <div class="absolute left-3 top-1/2 -translate-y-1/2 z-10 pointer-events-none flex">
+    <div id="daily-tabs" class="pointer-events-auto flex flex-col gap-1 p-1.5 rounded-2xl bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 border border-white/10 mono text-xs">
       {{range $i, $a := .Apps}}<button data-index="{{$i}}" data-url="{{.URL}}" onclick="switchDaily(this)" class="{{if eq $i 0}}bg-white text-black{{else}}text-white/80 hover:bg-white hover:text-black{{end}} px-4 py-2.5 rounded-full transition text-left whitespace-nowrap">{{$a.Name}}</button>{{end}}
-      <span class="hidden md:block h-px bg-white/10 my-1"></span>
-      <span class="md:hidden w-px bg-white/10 mx-1 self-stretch"></span>
+      <span class="h-px bg-white/10 my-1"></span>
       <a id="daily-external" href="{{(index .Apps 0).URL}}" target="_blank" class="px-4 py-2 rounded-full border border-white/15 text-white/70 hover:bg-white hover:text-black transition text-center">open ↗</a>
     </div>
   </div>
