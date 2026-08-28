@@ -1,6 +1,6 @@
 {{define "games_grid"}}<div class="flex flex-wrap gap-5" id="games-wrap">
 {{range $i, $a := .}}
-  <div class="game-card bg-zinc-900 rounded-[16px] border-2 border-white/10 overflow-hidden hover:border-white/20 transition-all duration-700 block w-[calc(33.333%-14px)] min-w-[280px] flex-none relative"
+  <div class="game-card bg-zinc-900 rounded-[16px] border-2 border-white/10 overflow-hidden hover:border-white/20 transition-all duration-700 block w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-14px)] min-w-0 flex-none relative"
        data-index="{{$i}}" data-name="{{.Name}}" data-url="{{.URL}}" data-cover="{{.Cover}}" data-release="{{.ReleaseDate}}" data-web="{{.WebGame}}" data-desc="{{.Description}}" data-shots='[{{range $j, $s := .Screenshots}}{{if $j}},{{end}}"{{$s}}"{{end}}]'>
     <a href="{{.URL}}" target="_blank" class="block relative aspect-[16/10] w-full overflow-hidden bg-zinc-800">
       <img src="{{.Cover}}" alt="{{.Name}}" class="w-full h-full object-cover" loading="lazy">
