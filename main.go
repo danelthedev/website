@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -81,6 +82,10 @@ func main() {
 		http.NotFound(w, r)
 	})
 
-	log.Println("listening :8000")
-	log.Fatal(http.ListenAndServe(":8000", nil))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8000"
+	}
+	log.Println("listening :" + port)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
