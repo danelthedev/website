@@ -9,12 +9,34 @@
 <script src="https://unpkg.com/htmx.org@1.9.12"></script>
 <script src="https://cdn.jsdelivr.net/npm/@formkit/auto-animate/dist/auto-animate.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>html{scrollbar-gutter:stable}*{font-family:Inter,sans-serif}.mono{font-family:JetBrains Mono,monospace}.display{font-family:Fraunces,serif}.card-img{transition:transform .35s}.group:hover .card-img{transform:scale(1.04)}</style>
+<style>html{scrollbar-gutter:stable}*{font-family:Inter,sans-serif}.mono{font-family:JetBrains Mono,monospace}.display{font-family:Fraunces,serif}.card-img{transition:transform .35s}.group:hover .card-img{transform:scale(1.04)}.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}</style>
 </head>
-<body class="bg-[#0a0a0a] text-zinc-100 {{if eq .Page "dailies"}}h-screen overflow-hidden flex flex-col{{else}}min-h-screen{{end}}">
-<nav class="w-full max-w-[1120px] mx-auto px-6 py-3 flex justify-between items-center border-b border-white/10 shrink-0">
-  <a href="/" class="display text-[17px] font-bold tracking-tight">danelthedev</a>
-  <div class="flex gap-1 mono text-xs items-center">
+<body class="bg-[#0a0a0a] text-zinc-100 {{if eq .Page "dailies"}}h-[100dvh] overflow-hidden flex flex-col relative{{else}}min-h-screen{{end}}">
+{{if eq .Page "dailies"}}
+<nav class="absolute top-0 inset-x-0 z-20 pointer-events-none">
+  <div class="w-full max-w-[1120px] mx-auto p-3 flex justify-between items-start gap-3">
+  <!-- left island: home -->
+  <div class="pointer-events-auto bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 border border-white/10 rounded-full px-4 py-2 flex items-center">
+    <a href="/" class="display text-[17px] font-bold tracking-tight">danelthedev</a>
+  </div>
+  <!-- right island: categories -->
+  <div class="pointer-events-auto bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 border border-white/10 rounded-full px-1.5 py-1.5 flex gap-1 mono text-xs items-center">
+    <a href="/games" class="px-3 py-1.5 rounded-full border border-white/15 hover:bg-white hover:text-black transition">games</a>
+    <a href="/dailies" class="px-3 py-1.5 rounded-full bg-white text-black border border-white transition">dailies</a>
+    <a href="/misc" class="px-3 py-1.5 rounded-full border border-white/15 hover:bg-white hover:text-black transition">misc</a>
+    <span class="opacity-20">·</span>
+    <a href="https://danelthedev.itch.io" target="_blank" class="px-3 py-1.5 rounded-full bg-[#ff2449] text-white hover:bg-[#e01f3f] transition">itch.io ↗</a>
+  </div>
+  </div>
+</nav>
+{{else}}
+<nav class="w-full max-w-[1120px] mx-auto p-3 flex justify-between items-start gap-3">
+  <!-- left island: home -->
+  <div class="bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 border border-white/10 rounded-full px-4 py-2 flex items-center">
+    <a href="/" class="display text-[17px] font-bold tracking-tight">danelthedev</a>
+  </div>
+  <!-- right island: categories -->
+  <div class="bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 border border-white/10 rounded-full px-1.5 py-1.5 flex gap-1 mono text-xs items-center">
     <a href="/games" class="px-3 py-1.5 rounded-full {{if eq .Page "games"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">games</a>
     <a href="/dailies" class="px-3 py-1.5 rounded-full {{if eq .Page "dailies"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">dailies</a>
     <a href="/misc" class="px-3 py-1.5 rounded-full {{if eq .Page "misc"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">misc</a>
@@ -22,34 +44,31 @@
     <a href="https://danelthedev.itch.io" target="_blank" class="px-3 py-1.5 rounded-full bg-[#ff2449] text-white hover:bg-[#e01f3f] transition">itch.io ↗</a>
   </div>
 </nav>
+{{end}}
 
 {{if eq .Page "home"}}
 <header class="max-w-[1120px] mx-auto px-6 pt-4 pb-6">
   <div class="grid sm:grid-cols-3 gap-4 mt-4">
     <a href="/games" class="group relative bg-white text-black rounded-[20px] p-6 overflow-hidden hover:scale-[1.02] transition">
       <div class="absolute -right-6 -top-6 w-24 h-24 bg-[#ff2449] rounded-full opacity-20"></div>
-      <div class="mono text-xs opacity-50">/games — {{len (index .Data.Projects 1).Apps}} titles</div>
+      <div class="mono text-xs opacity-50">/games</div>
       <div class="display text-2xl font-bold mt-1">Games</div>
       <div class="text-sm opacity-60 mt-1">My video games catalogue</div>
       <div class="mt-4 inline-block bg-black text-white px-4 py-1.5 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
     </a>
-    <a href="/dailies" class="group bg-[#ffec3d] border-2 border-black rounded-[20px] p-4 hover:shadow-[4px_4px_0px_rgba(255,255,255,0.15)] transition flex gap-4 text-black">
-      <img src="{{(index (index .Data.Projects 0).Apps 0).Cover}}" class="w-20 h-20 rounded-xl object-cover border-2 border-black flex-none">
-      <div class="min-w-0">
-        <div class="mono text-xs opacity-50">/dailies</div>
-        <div class="font-bold">Daily Puzzles</div>
-        <div class="text-sm opacity-60 line-clamp-2">Puzzles, refreshed daily.</div>
-        <div class="mt-2 mono text-xs bg-black text-white inline-block px-2 py-1 rounded-full">open →</div>
-      </div>
+    <a href="/dailies" class="group relative bg-[#ffec3d] text-black border-2 border-black rounded-[20px] p-6 overflow-hidden hover:scale-[1.02] transition">
+      <div class="absolute -right-6 -top-6 w-24 h-24 bg-black rounded-full opacity-10"></div>
+      <div class="mono text-xs opacity-50">/dailies</div>
+      <div class="display text-2xl font-bold mt-1">Daily Puzzles</div>
+      <div class="text-sm opacity-60 mt-1">Puzzles, refreshed daily.</div>
+      <div class="mt-4 inline-block bg-black text-white px-4 py-1.5 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
     </a>
-    <a href="/misc" class="group bg-[#a78bfa] border-2 border-black rounded-[20px] p-4 hover:shadow-[4px_4px_0px_rgba(255,255,255,0.15)] transition flex gap-4 text-black">
-      <img src="{{(index (index .Data.Projects 2).Apps 0).Cover}}" class="w-20 h-20 rounded-xl object-cover border-2 border-black">
-      <div>
-        <div class="mono text-xs opacity-70">/misc</div>
-        <div class="font-bold">Experiments</div>
-        <div class="text-sm opacity-70">Odd tools & side toys.</div>
-        <div class="mt-2 mono text-xs bg-white inline-block px-2 py-1 rounded-full border border-black">open →</div>
-      </div>
+    <a href="/misc" class="group relative bg-[#a78bfa] text-black border-2 border-black rounded-[20px] p-6 overflow-hidden hover:scale-[1.02] transition">
+      <div class="absolute -right-6 -top-6 w-24 h-24 bg-white rounded-full opacity-15"></div>
+      <div class="mono text-xs opacity-50">/misc</div>
+      <div class="display text-2xl font-bold mt-1">Experiments</div>
+      <div class="text-sm opacity-60 mt-1">Odd tools & side toys.</div>
+      <div class="mt-4 inline-block bg-black text-white px-4 py-1.5 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
     </a>
   </div>
 </header>
@@ -70,14 +89,7 @@
 {{end}}
 
 {{if eq .Page "dailies"}}
-<section class="max-w-[1120px] mx-auto px-6 py-4 flex flex-col lg:flex-row gap-4 flex-1 overflow-hidden min-h-0">
-  <div id="daily-tabs" class="flex lg:flex-col gap-2 mono text-xs shrink-0 lg:w-28 overflow-auto">
-    {{range $i, $a := .Apps}}<button onclick="document.getElementById('daily-frame').src='{{.URL}}';document.querySelectorAll('#daily-tabs button').forEach(b=>b.className='px-4 py-2 rounded-full border border-white/15 text-left');this.className='px-4 py-2 rounded-full bg-white text-black text-left'" class="{{if eq $i 0}}px-4 py-2 rounded-full bg-white text-black text-left{{else}}px-4 py-2 rounded-full border border-white/15 hover:bg-white hover:text-black transition text-left{{end}}">{{.Name}}</button>{{end}}
-  </div>
-  <div class="w-[50vw] mx-auto rounded-[18px] overflow-hidden border-2 border-white/10 bg-zinc-900 min-w-0 flex flex-col min-h-0 shrink-0">
-    <iframe id="daily-frame" src="{{(index .Apps 0).URL}}" class="w-full flex-1 bg-white min-h-0" loading="lazy" style="border:0; overflow:hidden" scrolling="no"></iframe>
-  </div>
-</section>
+{{template "dailies" .}}
 {{end}}
 
 {{if eq .Page "misc"}}
