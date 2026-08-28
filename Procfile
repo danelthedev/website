@@ -1,1 +1,1 @@
-web: portfolio
+web: bin
