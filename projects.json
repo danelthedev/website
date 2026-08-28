@@ -239,6 +239,18 @@
                     "screenshots": []
                 }
             ]
+        },
+        {
+            "category": "backgammon",
+            "apps": [
+                {
+                    "name": "Fair Backgammon",
+                    "description": "Online multiplayer backgammon",
+                    "url": "https://backgammon.danelthedev.com",
+                    "cover": "https://images.unsplash.com/photo-1586165368502-1bad197a6461?w=600&q=80",
+                    "screenshots": []
+                }
+            ]
         }
     ]
 }

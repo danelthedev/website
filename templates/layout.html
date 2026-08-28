@@ -8,11 +8,11 @@
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4/dist/full.min.css" rel="stylesheet">
 <script src="https://unpkg.com/htmx.org@1.9.12"></script>
 <script src="https://cdn.jsdelivr.net/npm/@formkit/auto-animate/dist/auto-animate.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>html{scrollbar-gutter:stable}*{font-family:Inter,sans-serif}.mono{font-family:JetBrains Mono,monospace}.display{font-family:Fraunces,serif}.card-img{transition:transform .35s}.group:hover .card-img{transform:scale(1.04)}.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}</style>
 </head>
-<body class="bg-[#0a0a0a] text-zinc-100 {{if eq .Page "dailies"}}h-[100dvh] overflow-hidden flex flex-col relative{{else}}min-h-screen{{end}}">
-{{if eq .Page "dailies"}}
+<body class="bg-[#0a0a0a] text-zinc-100 {{if or (eq .Page "dailies") (eq .Page "backgammon")}}h-[100dvh] overflow-hidden flex flex-col relative{{else}}min-h-screen{{end}}">
+{{if or (eq .Page "dailies") (eq .Page "backgammon")}}
 <nav class="absolute top-0 inset-x-0 z-20 pointer-events-none">
   <div class="w-full max-w-[1120px] mx-auto p-3 flex justify-between items-start gap-3">
   <!-- left island: home -->
@@ -23,6 +23,7 @@
   <div class="pointer-events-auto bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 border border-white/10 rounded-full px-1.5 py-1.5 flex gap-1 mono text-xs items-center">
     <a href="/games" class="px-3 py-1.5 rounded-full {{if eq .Page "games"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">games</a>
     <a href="/dailies" class="px-3 py-1.5 rounded-full {{if eq .Page "dailies"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">dailies</a>
+    <a href="/backgammon" class="px-3 py-1.5 rounded-full {{if eq .Page "backgammon"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">backgammon</a>
     <a href="/misc" class="px-3 py-1.5 rounded-full {{if eq .Page "misc"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">misc</a>
     <a href="/about" class="px-3 py-1.5 rounded-full {{if eq .Page "about"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">about</a>
   </div>
@@ -37,6 +38,7 @@
   <div class="bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 border border-white/10 rounded-full px-1.5 py-1.5 flex gap-1 mono text-xs items-center">
     <a href="/games" class="px-3 py-1.5 rounded-full {{if eq .Page "games"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">games</a>
     <a href="/dailies" class="px-3 py-1.5 rounded-full {{if eq .Page "dailies"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">dailies</a>
+    <a href="/backgammon" class="px-3 py-1.5 rounded-full {{if eq .Page "backgammon"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">backgammon</a>
     <a href="/misc" class="px-3 py-1.5 rounded-full {{if eq .Page "misc"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">misc</a>
     <a href="/about" class="px-3 py-1.5 rounded-full {{if eq .Page "about"}}bg-white text-black border border-white{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">about</a>
   </div>
@@ -46,24 +48,32 @@
 {{if eq .Page "home"}}
 <header class="max-w-[1120px] mx-auto px-6 pt-4 pb-10">
   <div class="flex flex-col gap-4 mt-4">
-    <a href="/games" class="group relative bg-white text-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[72%] self-start">
+    <a href="/backgammon" class="group relative bg-[#0a66c2] text-white border-2 border-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[72%] self-end text-right">
+      <div class="absolute -left-6 -top-6 w-24 h-24 bg-white rounded-full opacity-10 pointer-events-none"></div>
+      <div class="mono text-xs opacity-50">/backgammon</div>
+      <div class="display text-3xl font-black mt-1">Fair Backgammon</div>
+      <div class="text-sm opacity-60 mt-1">Online multiplayer backgammon</div>
+      <div class="mt-2 mono text-xs opacity-80">Coming soon</div>
+      <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Play →</div>
+    </a>
+    <a href="/games" class="group relative bg-white text-black border-2 border-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[72%] self-start">
       <div class="absolute -right-6 -top-6 w-24 h-24 bg-[#ff2449] rounded-full opacity-20 pointer-events-none"></div>
       <div class="mono text-xs opacity-50">/games</div>
-      <div class="display text-3xl font-bold mt-1">Games</div>
+      <div class="display text-3xl font-black mt-1">Games</div>
       <div class="text-sm opacity-60 mt-1">My video games catalogue</div>
       <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
     </a>
     <a href="/dailies" class="group relative bg-[#ffec3d] text-black border-2 border-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[72%] self-end text-right">
       <div class="absolute -left-6 -top-6 w-24 h-24 bg-black rounded-full opacity-10 pointer-events-none"></div>
       <div class="mono text-xs opacity-50">/dailies</div>
-      <div class="display text-3xl font-bold mt-1">Daily Puzzles</div>
+      <div class="display text-3xl font-black mt-1">Daily Puzzles</div>
       <div class="text-sm opacity-60 mt-1">Puzzles, refreshed daily.</div>
       <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
     </a>
     <a href="/misc" class="group relative bg-[#a78bfa] text-black border-2 border-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[72%] self-start">
       <div class="absolute -right-6 -top-6 w-24 h-24 bg-white rounded-full opacity-15 pointer-events-none"></div>
       <div class="mono text-xs opacity-50">/misc</div>
-      <div class="display text-3xl font-bold mt-1">Experiments</div>
+      <div class="display text-3xl font-black mt-1">Experiments</div>
       <div class="text-sm opacity-60 mt-1">Odd tools & side toys.</div>
       <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
     </a>
@@ -88,16 +98,20 @@
 {{template "dailies" .}}
 {{end}}
 
+{{if eq .Page "backgammon"}}
+{{template "backgammon" .}}
+{{end}}
+
 {{if eq .Page "misc"}}
-<section class="max-w-[1120px] mx-auto px-6 py-8">
-  <div class="space-y-3 max-w-2xl">
+<section class="max-w-[1120px] mx-auto px-6 pt-4 pb-10">
+  <div class="flex flex-col gap-4 mt-4">
   {{range .Apps}}
-    <a href="{{.URL}}" target="_blank" class="flex items-center justify-between p-4 bg-zinc-900 border border-white/10 rounded-[18px] hover:border-white/20 transition">
-      <div class="flex gap-4 items-center">
-        <img src="{{.Cover}}" class="w-14 h-14 rounded-xl object-cover">
-        <div><div class="font-semibold">{{.Name}}</div><div class="text-sm opacity-60">{{.Description}}</div></div>
-      </div>
-      <span class="mono text-xs border border-white/15 rounded-full px-3 py-1">open ↗</span>
+    <a href="{{.URL}}" target="_blank" class="group relative bg-[#a78bfa] text-black border-2 border-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[72%] odd:self-start even:self-end even:text-right">
+      <div class="absolute -right-6 -top-6 w-24 h-24 bg-white rounded-full opacity-15 pointer-events-none even:-left-6 even:-right-auto"></div>
+      <div class="mono text-xs opacity-50">&nbsp;</div>
+      <div class="display text-3xl font-black mt-1">{{.Name}}</div>
+      <div class="text-sm opacity-60 mt-1">{{.Description}}</div>
+      <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">open ↗</div>
     </a>
   {{end}}
   </div>
@@ -114,24 +128,24 @@
     <a href="https://github.com/danelthedev" target="_blank" class="group relative bg-white text-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[68%] self-start">
       <div class="absolute -right-6 -top-6 w-24 h-24 bg-[#ff2449] rounded-full opacity-10 pointer-events-none"></div>
       <div class="flex gap-4 items-center">
-        <div class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center font-bold">GH</div>
-        <div><div class="display font-bold text-lg leading-none">GitHub</div><div class="mono text-xs opacity-60">github.com/danelthedev</div></div>
+        <div class="w-12 h-12 rounded-full bg-black flex items-center justify-center shrink-0"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub" class="w-6 h-6"></div>
+        <div><div class="display text-3xl font-black">GitHub</div><div class="mono text-xs opacity-60">github.com/danelthedev</div></div>
       </div>
       <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">open ↗</div>
     </a>
-    <a href="https://danelthedev.itch.io" target="_blank" class="group relative bg-[#ff2449] text-white rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[68%] self-end text-right">
+    <a href="https://danelthedev.itch.io" target="_blank" class="group relative bg-[#ff2449] text-white border-2 border-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[68%] self-end text-right">
       <div class="absolute -left-6 -top-6 w-32 h-32 bg-white rounded-full opacity-10 pointer-events-none"></div>
       <div class="flex gap-4 items-center justify-end">
-        <div class="text-right"><div class="display font-bold text-lg leading-none">itch.io</div><div class="mono text-xs opacity-80">danelthedev.itch.io</div></div>
-        <div class="w-12 h-12 rounded-full bg-white text-[#ff2449] flex items-center justify-center font-bold">it</div>
+        <div class="text-right"><div class="display text-3xl font-black">itch.io</div><div class="mono text-xs opacity-60">danelthedev.itch.io</div></div>
+        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0"><img src="https://cdn.simpleicons.org/itchdotio/FA5C5C" alt="itch.io" class="w-6 h-6"></div>
       </div>
       <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">open ↗</div>
     </a>
-    <a href="https://www.linkedin.com/in/daniel-imbrea/" target="_blank" class="group relative bg-[#ffec3d] text-black border-2 border-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[68%] self-start">
-      <div class="absolute -right-6 -top-6 w-24 h-24 bg-black rounded-full opacity-10 pointer-events-none"></div>
+    <a href="https://www.linkedin.com/in/daniel-imbrea/" target="_blank" class="group relative bg-[#0a66c2] text-white border-2 border-black rounded-[20px] p-8 overflow-hidden hover:scale-[1.01] transition w-[88%] md:w-[68%] self-start">
+      <div class="absolute -right-6 -top-6 w-24 h-24 bg-white rounded-full opacity-15 pointer-events-none"></div>
       <div class="flex gap-4 items-center">
-        <div class="w-12 h-12 rounded-full bg-[#0a66c2] text-white flex items-center justify-center font-bold">in</div>
-        <div><div class="display font-bold text-lg leading-none">LinkedIn</div><div class="mono text-xs opacity-60">linkedin.com/in/daniel-imbrea</div></div>
+        <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0"><svg role="img" viewBox="0 0 24 24" class="w-6 h-6 fill-[#0a66c2]" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.777 13.019H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+        <div><div class="display text-3xl font-black">LinkedIn</div><div class="mono text-xs opacity-60">linkedin.com/in/daniel-imbrea</div></div>
       </div>
       <div class="mt-5 inline-block relative bg-black text-white border border-black px-5 py-2 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">open ↗</div>
     </a>

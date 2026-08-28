@@ -1,12 +1,12 @@
 {{define "dailies"}}
 <section class="flex-1 relative overflow-hidden bg-black">
-  <!-- full-bleed iframe -->
-  <iframe id="daily-frame" src="{{(index .Apps 0).URL}}" class="absolute inset-0 w-full h-full border-0 block" allow="fullscreen" loading="eager"></iframe>
+  <!-- lazy hidden iframe to not block programle 1.3MB parse -->
+  {{range $i, $a := .Apps}}{{if eq $i 0}}<iframe id="frame-{{$i}}" src="{{.URL}}" class="absolute inset-0 w-full h-full border-0 block" allow="autoplay; fullscreen" loading="eager"></iframe>{{else}}<iframe id="frame-{{$i}}" data-src="{{.URL}}" class="absolute inset-0 w-full h-full border-0 hidden" allow="autoplay; fullscreen" loading="lazy"></iframe>{{end}}{{end}}
 
   <!-- left column tabs -->
   <div class="absolute left-3 top-[72px] md:top-1/2 md:-translate-y-1/2 z-10 pointer-events-none flex">
     <div id="daily-tabs" class="pointer-events-auto flex flex-col gap-1 p-1.5 rounded-2xl bg-black/60 backdrop-blur supports-[backdrop-filter]:bg-black/40 border border-white/10 mono text-xs">
-      {{range $i, $a := .Apps}}<button data-url="{{.URL}}" onclick="switchDaily(this)" class="{{if eq $i 0}}bg-white text-black{{else}}text-white/80 hover:bg-white hover:text-black{{end}} px-4 py-2.5 rounded-full transition text-left whitespace-nowrap">{{$a.Name}}</button>{{end}}
+      {{range $i, $a := .Apps}}<button data-index="{{$i}}" data-url="{{.URL}}" onclick="switchDaily(this)" class="{{if eq $i 0}}bg-white text-black{{else}}text-white/80 hover:bg-white hover:text-black{{end}} px-4 py-2.5 rounded-full transition text-left whitespace-nowrap">{{$a.Name}}</button>{{end}}
       <span class="h-px bg-white/10 my-1"></span>
       <a id="daily-external" href="{{(index .Apps 0).URL}}" target="_blank" class="px-4 py-2 rounded-full border border-white/15 text-white/70 hover:bg-white hover:text-black transition text-center">open ↗</a>
     </div>
@@ -14,14 +14,20 @@
 </section>
 <script>
 function switchDaily(btn){
-  const url=btn.dataset.url;
-  document.getElementById('daily-frame').src=url;
+  const idx=btn.dataset.index, url=btn.dataset.url;
+  document.querySelectorAll('[id^="frame-"]').forEach(f=>{f.classList.add('hidden');f.classList.remove('block')});
+  const fr=document.getElementById('frame-'+idx);
+  if(!fr.src || fr.dataset.loaded!=="1"){
+    fr.src=url; fr.dataset.loaded="1";
+  }
+  fr.classList.remove('hidden'); fr.classList.add('block');
   document.getElementById('daily-external').href=url;
   document.querySelectorAll('#daily-tabs button').forEach(b=>b.className='text-white/80 hover:bg-white hover:text-black px-4 py-2.5 rounded-full transition text-left whitespace-nowrap');
   btn.className='bg-white text-black px-4 py-2.5 rounded-full transition text-left whitespace-nowrap';
   history.replaceState(null,'','/dailies?game='+encodeURIComponent(btn.textContent.trim().toLowerCase()));
 }
 (function(){
+  const f0=document.getElementById('frame-0'); if(f0) f0.dataset.loaded="1";
   const p=new URLSearchParams(location.search).get('game');
   if(p){
     document.querySelectorAll('#daily-tabs button').forEach(b=>{
