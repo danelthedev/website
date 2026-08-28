@@ -1,0 +1,13 @@
+{{define "modal"}}<dialog open class="modal backdrop-blur-sm">
+  <div class="modal-box max-w-2xl bg-zinc-900 border border-white/10 text-white">
+    <form method="dialog"><button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" onclick="document.getElementById('modal').innerHTML=''">✕</button></form>
+    <img src="{{.Cover}}" class="w-full aspect-[16/9] object-cover rounded-xl border border-white/10">
+    <h3 class="display text-2xl font-bold mt-4">{{.Name}}</h3>
+    <div class="mono text-xs flex gap-2 mt-2 opacity-50">{{if .WebGame}}<span>WEB</span>{{else}}<span>DOWNLOAD</span>{{end}}{{if .ReleaseDate}}<span>· {{.ReleaseDate}}</span>{{end}}</div>
+    <div class="modal-action">
+      <a href="{{.URL}}" target="_blank" class="bg-white text-black px-5 py-2 rounded-full text-sm">{{if .WebGame}}Play on itch{{else}}View on itch{{end}} →</a>
+      <button class="px-5 py-2 rounded-full border border-white/15 text-sm" onclick="document.getElementById('modal').innerHTML=''">Close</button>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop bg-black/60" onclick="document.getElementById('modal').innerHTML=''"><button>close</button></form>
+</dialog>{{end}}

@@ -1,0 +1,100 @@
+{{define "layout"}}<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>danelthedev.com — {{if eq .Page "home"}}portfolio{{else}}{{.Page}}{{end}}</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4/dist/full.min.css" rel="stylesheet">
+<script src="https://unpkg.com/htmx.org@1.9.12"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>*{font-family:Inter,sans-serif}.mono{font-family:JetBrains Mono,monospace}.display{font-family:Fraunces,serif}.card-img{transition:transform .35s}.group:hover .card-img{transform:scale(1.04)}</style>
+</head>
+<body class="bg-[#0a0a0a] text-zinc-100 min-h-screen">
+<nav class="max-w-[1120px] mx-auto px-6 py-3 flex justify-between items-center border-b border-white/10">
+  <a href="/" class="display text-[17px] font-bold tracking-tight">danelthedev</a>
+  <div class="flex gap-1 mono text-xs items-center">
+    <a href="/games" class="px-3 py-1.5 rounded-full {{if eq .Page "games"}}bg-white text-black{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">games</a>
+    <a href="/dailies" class="px-3 py-1.5 rounded-full {{if eq .Page "dailies"}}bg-white text-black{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">dailies</a>
+    <a href="/misc" class="px-3 py-1.5 rounded-full {{if eq .Page "misc"}}bg-white text-black{{else}}border border-white/15 hover:bg-white hover:text-black{{end}} transition">misc</a>
+    <span class="opacity-20">·</span>
+    <a href="https://danelthedev.itch.io" target="_blank" class="px-3 py-1.5 rounded-full bg-[#ff2449] text-white hover:bg-[#e01f3f] transition">itch.io ↗</a>
+  </div>
+</nav>
+
+{{if eq .Page "home"}}
+<header class="max-w-[1120px] mx-auto px-6 pt-4 pb-6">
+  <div class="grid sm:grid-cols-3 gap-4 mt-4">
+    <a href="/games" class="group relative bg-white text-black rounded-[20px] p-6 overflow-hidden hover:scale-[1.02] transition">
+      <div class="absolute -right-6 -top-6 w-24 h-24 bg-[#ff2449] rounded-full opacity-20"></div>
+      <div class="mono text-xs opacity-50">/games — {{len (index .Data.Projects 1).Apps}} titles</div>
+      <div class="display text-2xl font-bold mt-1">Games</div>
+      <div class="text-sm opacity-60 mt-1">My video games catalogue</div>
+      <div class="mt-4 inline-block bg-black text-white px-4 py-1.5 rounded-full text-sm font-medium group-hover:bg-[#ff2449] transition">Browse →</div>
+    </a>
+    <a href="/dailies" class="group bg-[#ffec3d] border-2 border-black rounded-[20px] p-4 hover:shadow-[4px_4px_0px_rgba(255,255,255,0.15)] transition flex gap-4 text-black">
+      <img src="{{(index (index .Data.Projects 0).Apps 0).Cover}}" class="w-20 h-20 rounded-xl object-cover border-2 border-black flex-none">
+      <div class="min-w-0">
+        <div class="mono text-xs opacity-50">/dailies</div>
+        <div class="font-bold">Daily Puzzles</div>
+        <div class="text-sm opacity-60 line-clamp-2">Puzzles, refreshed daily.</div>
+        <div class="mt-2 mono text-xs bg-black text-white inline-block px-2 py-1 rounded-full">open →</div>
+      </div>
+    </a>
+    <a href="/misc" class="group bg-[#a78bfa] border-2 border-black rounded-[20px] p-4 hover:shadow-[4px_4px_0px_rgba(255,255,255,0.15)] transition flex gap-4 text-black">
+      <img src="{{(index (index .Data.Projects 2).Apps 0).Cover}}" class="w-20 h-20 rounded-xl object-cover border-2 border-black">
+      <div>
+        <div class="mono text-xs opacity-70">/misc</div>
+        <div class="font-bold">Experiments</div>
+        <div class="text-sm opacity-70">Odd tools & side toys.</div>
+        <div class="mt-2 mono text-xs bg-white inline-block px-2 py-1 rounded-full border border-black">open →</div>
+      </div>
+    </a>
+  </div>
+</header>
+{{end}}
+
+{{if eq .Page "games"}}
+<section class="max-w-[1120px] mx-auto px-6 py-6">
+  <div class="flex flex-wrap justify-between items-baseline gap-4 mb-6">
+    <h1 class="display text-3xl font-bold">Games</h1>
+    <div id="game-filter" class="flex gap-1 mono text-xs">
+      <button onclick="document.querySelectorAll('#game-filter button').forEach(b=>b.className='px-3 py-1.5 rounded-full border border-white/15 hover:bg-white hover:text-black transition');this.className='px-3 py-1.5 rounded-full bg-white text-black'" hx-get="/games?partial=games&filter=all" hx-target="#games-grid" hx-swap="innerHTML" class="px-3 py-1.5 rounded-full bg-white text-black">all</button>
+      <button onclick="document.querySelectorAll('#game-filter button').forEach(b=>b.className='px-3 py-1.5 rounded-full border border-white/15 hover:bg-white hover:text-black transition');this.className='px-3 py-1.5 rounded-full bg-white text-black'" hx-get="/games?partial=games&filter=web" hx-target="#games-grid" hx-swap="innerHTML" class="px-3 py-1.5 rounded-full border border-white/15 hover:bg-white hover:text-black transition">web</button>
+      <button onclick="document.querySelectorAll('#game-filter button').forEach(b=>b.className='px-3 py-1.5 rounded-full border border-white/15 hover:bg-white hover:text-black transition');this.className='px-3 py-1.5 rounded-full bg-white text-black'" hx-get="/games?partial=games&filter=dl" hx-target="#games-grid" hx-swap="innerHTML" class="px-3 py-1.5 rounded-full border border-white/15 hover:bg-white hover:text-black transition">download</button>
+    </div>
+  </div>
+  <div id="games-grid">{{template "games_grid" .Apps}}</div>
+</section>
+{{end}}
+
+{{if eq .Page "dailies"}}
+<section class="max-w-[1120px] mx-auto px-6 py-4 flex flex-col lg:flex-row gap-4">
+  <div id="daily-tabs" class="flex lg:flex-col gap-2 mono text-xs shrink-0 lg:w-44">
+    {{range $i, $a := .Apps}}<button onclick="document.getElementById('daily-frame').src='{{.URL}}';document.querySelectorAll('#daily-tabs button').forEach(b=>b.className='px-4 py-2 rounded-full border border-white/15 text-left');this.className='px-4 py-2 rounded-full bg-white text-black text-left'" class="{{if eq $i 0}}px-4 py-2 rounded-full bg-white text-black text-left{{else}}px-4 py-2 rounded-full border border-white/15 hover:bg-white hover:text-black transition text-left{{end}}">{{.Name}}</button>{{end}}
+  </div>
+  <div class="flex-1 rounded-[18px] overflow-hidden border-2 border-white/10 bg-zinc-900 min-w-0">
+    <iframe id="daily-frame" src="{{(index .Apps 0).URL}}" class="w-full h-[calc(100vh-120px)] min-h-[700px] bg-white" loading="lazy" style="border:0"></iframe>
+  </div>
+</section>
+{{end}}
+
+{{if eq .Page "misc"}}
+<section class="max-w-[1120px] mx-auto px-6 py-8">
+  <h1 class="display text-3xl font-bold mb-6">Misc</h1>
+  <div class="space-y-3 max-w-2xl">
+  {{range .Apps}}
+    <a href="{{.URL}}" target="_blank" class="flex items-center justify-between p-4 bg-zinc-900 border border-white/10 rounded-[18px] hover:border-white/20 transition">
+      <div class="flex gap-4 items-center">
+        <img src="{{.Cover}}" class="w-14 h-14 rounded-xl object-cover">
+        <div><div class="font-medium">{{.Name}}</div><div class="text-sm opacity-60">{{.Description}}</div></div>
+      </div>
+      <span class="mono text-xs border border-white/15 rounded-full px-3 py-1">open ↗</span>
+    </a>
+  {{end}}
+  </div>
+</section>
+{{end}}
+
+<div id="modal"></div>
+</body></html>{{end}}

@@ -1,0 +1,142 @@
+{
+    "projects": [
+        {
+            "category": "daily_games",
+            "apps": [
+                {
+                    "name": "Programle",
+                    "description": "A daily game about guessing programming languages based on code snippets.",
+                    "url": "https://programle.danelthedev.com",
+                    "cover": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80"
+                },
+                {
+                    "name": "Rongless",
+                    "description": "A daily song guessing game \u2014 guess the track from snippets.",
+                    "url": "https://rongless.danelthedev.com",
+                    "cover": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80"
+                }
+            ]
+        },
+        {
+            "category": "games",
+            "apps": [
+                {
+                    "name": "Ancients and Treasures",
+                    "url": "https://danelthedev.itch.io/ancients-and-treasures",
+                    "web_game": false,
+                    "release_date": "2021-09-21",
+                    "cover": "https://img.itch.zone/aW1nLzcwMjQ5OTkucG5n/original/rFFG8y.png"
+                },
+                {
+                    "name": "Bobitza",
+                    "url": "https://danelthedev.itch.io/bobitza",
+                    "web_game": false,
+                    "release_date": "",
+                    "cover": "https://img.itch.zone/aW1nLzUxNDQ3OTAucG5n/original/O4lUqz.png"
+                },
+                {
+                    "name": "C0re",
+                    "url": "https://danelthedev.itch.io/c0re",
+                    "web_game": false,
+                    "release_date": "",
+                    "cover": "https://img.itch.zone/aW1nLzkwODg3MDAucG5n/original/ejmNFH.png"
+                },
+                {
+                    "name": "Dice Court",
+                    "url": "https://danelthedev.itch.io/dice-court",
+                    "web_game": true,
+                    "release_date": "2022-07-17",
+                    "cover": "https://img.itch.zone/aW1nLzk1MzYwOTkucG5n/original/XsE%2B5%2F.png"
+                },
+                {
+                    "name": "Dungeon Renovators Inc",
+                    "url": "https://danelthedev.itch.io/dungeon-renovators-inc",
+                    "web_game": true,
+                    "release_date": "2023-07-10",
+                    "cover": "https://img.itch.zone/aW1nLzEyNzA3NjI3LmdpZg==/original/kQDYDC.gif"
+                },
+                {
+                    "name": "Ghost Sucker",
+                    "url": "https://danelthedev.itch.io/ghost-sucker",
+                    "web_game": false,
+                    "release_date": "2021-10-25",
+                    "cover": "https://img.itch.zone/aW1nLzcyNzQzNzguZ2lm/original/%2BLJ52c.gif"
+                },
+                {
+                    "name": "Jimbob and the Magic Chain",
+                    "url": "https://danelthedev.itch.io/jimbob-and-the-magic-chain",
+                    "web_game": true,
+                    "release_date": "2022-04-24",
+                    "cover": "https://img.itch.zone/aW1nLzg3NDgyNzYucG5n/original/p%2FUzIL.png"
+                },
+                {
+                    "name": "Reverse Trivia",
+                    "url": "https://danelthedev.itch.io/reverse-trivia",
+                    "web_game": false,
+                    "release_date": "",
+                    "cover": "https://img.itch.zone/aW1nLzY0NzA3MjMucG5n/original/7Vt3md.png"
+                },
+                {
+                    "name": "Robo Fl0w",
+                    "url": "https://danelthedev.itch.io/robo-fl0w",
+                    "web_game": true,
+                    "release_date": "2024-07-22",
+                    "cover": "https://img.itch.zone/aW1nLzE3MDAwNzI4LnBuZw==/original/flezb4.png"
+                },
+                {
+                    "name": "Robotzel",
+                    "url": "https://danelthedev.itch.io/robotzel",
+                    "web_game": false,
+                    "release_date": "2020-09-17",
+                    "cover": "https://img.itch.zone/aW1nLzQyMzYyNDgucG5n/original/FYwQjl.png"
+                },
+                {
+                    "name": "The Chomper",
+                    "url": "https://danelthedev.itch.io/the-chomper",
+                    "web_game": true,
+                    "release_date": "2022-07-31",
+                    "cover": "https://img.itch.zone/aW1nLzk2NTgzOTcucG5n/original/SvTgT6.png"
+                },
+                {
+                    "name": "Tiny Technologies",
+                    "url": "https://danelthedev.itch.io/tiny-technologies",
+                    "web_game": true,
+                    "release_date": "2024-08-23",
+                    "cover": "https://img.itch.zone/aW1nLzE3NDIzMzYwLnBuZw==/original/Y9MjTY.png"
+                },
+                {
+                    "name": "Train Loops",
+                    "url": "https://danelthedev.itch.io/train-loops",
+                    "web_game": true,
+                    "release_date": "2025-08-05",
+                    "cover": "https://img.itch.zone/aW1nLzIyNDUwMTY3LnBuZw==/original/bMIY6S.png"
+                },
+                {
+                    "name": "Unpleasant Takeover",
+                    "url": "https://danelthedev.itch.io/unpleasant-takeover",
+                    "web_game": false,
+                    "release_date": "",
+                    "cover": "https://img.itch.zone/aW1nLzc5NzQ5MTMucG5n/original/me6VoZ.png"
+                },
+                {
+                    "name": "Wrecker Ball",
+                    "url": "https://danelthedev.itch.io/wrecker-ball",
+                    "web_game": true,
+                    "release_date": "2022-10-26",
+                    "cover": "https://img.itch.zone/aW1nLzEwMzM2ODgwLnBuZw==/original/wfLnFx.png"
+                }
+            ]
+        },
+        {
+            "category": "misc",
+            "apps": [
+                {
+                    "name": "BotBook",
+                    "description": "A social media for LLMs.",
+                    "url": "https://botbook.danelthedev.com",
+                    "cover": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80"
+                }
+            ]
+        }
+    ]
+}
