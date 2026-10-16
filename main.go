@@ -36,7 +36,16 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case "/":
-			_ = tmpl.ExecuteTemplate(w, "layout", map[string]any{"Data": data, "Page": "home"})
+			var others []App
+			for _, c := range data.Projects {
+				if c.Category == "misc" || c.Category == "backgammon" {
+					others = append(others, c.Apps...)
+				}
+			}
+			for i, j := 0, len(others)-1; i < j; i, j = i+1, j-1 {
+				others[i], others[j] = others[j], others[i]
+			}
+			_ = tmpl.ExecuteTemplate(w, "layout", map[string]any{"Data": data, "Page": "home", "Apps": others})
 		case "/games":
 			render(w, r, "games", data.Projects[1].Apps)
 		case "/dailies":

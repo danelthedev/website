@@ -237,6 +237,13 @@
                     "url": "https://botbook.danelthedev.com",
                     "cover": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80",
                     "screenshots": []
+                },
+                {
+                    "name": "Formula Fruit Fly",
+                    "description": "A racing simulation application.",
+                    "url": "https://fff.danelthedev.com",
+                    "cover": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=600&q=80",
+                    "screenshots": []
                 }
             ]
         },
